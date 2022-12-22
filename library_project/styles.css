@@ -7,6 +7,8 @@
 body {
     height: 100vh;
     width: 100vw;
+
+    background-color: #F9D08B;
 }
 
 nav {
@@ -14,28 +16,29 @@ nav {
     justify-content: space-between;
 
     width: auto;
-    font-size: 1.5em;
+    font-size: 1.75rem;
     padding: 1em;
-    background-color: rgb(145, 149, 255);
-    border-bottom: 2px grey solid;
+    background-color: #F9D08B;
 }
 
 .logIn {
-    width: 10em;
+    font-size: 1.1rem;
+    width: 8rem;
     border-radius: 5px;
     border: none;
-    background-color: white;
-    font-size: .6em;
+    color: white;
+    background-color: #9B6508;
 }
 
     .logIn:hover {
         cursor: pointer;
-        background-color: rgb(221, 206, 240);
+        color: black;
+        background-color: #FBE0B1;
     }
 
-.addBook {
+.openForm {
     color: white;
-    background-color: mediumslateblue;
+    background-color: #9B6508;
     font-size: 50px;
     width: 2em;
     height: 2em;
@@ -47,9 +50,66 @@ nav {
 
     position: absolute;
     bottom: 1em;
-    right: 1em;
+    right: 2rem;
 }
 
-    .addBook:hover {
+    .openForm:hover {
         cursor: pointer;
     }
+
+.form-popup {
+    position: fixed;
+    bottom: 0;
+    right: 2rem;
+    border: 3px solid #9B6508;
+    z-index: 1;
+}
+
+.form-container {
+    max-width: 500px;
+    height: 30rem;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-container input[type=text], 
+.form-container input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+    .form-container input:focus {
+        color: #9B6508;
+    }
+
+fieldset {
+    outline: none;
+    margin-bottom: 22px;
+    padding: 10px;
+}
+
+fieldset input {
+    padding: 10px;
+}
+
+
+.form-container .btn {
+    background-color: #04AA6d;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.8;
+}
+
+.form-container .closeForm {
+    background-color: red;
+}
+
+.form-container .btn:hover, .openForm .btn:hover {
+    opacity: 1;
+}
