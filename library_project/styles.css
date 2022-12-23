@@ -11,6 +11,8 @@ body {
     background-color: #F9D08B;
 }
 
+/* NAV STYLES */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -36,6 +38,26 @@ nav {
         background-color: #FBE0B1;
     }
 
+/* MAIN STYLES  */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+/* CARD STYLES */
+
+.card {
+    height: 20rem;
+    aspect-ratio: 2 / 3;
+    color: black;
+    background-color: white;
+
+    border-radius: 10px;
+}
+
+/* FORM STLYES */
 .openForm {
     color: white;
     background-color: #9B6508;

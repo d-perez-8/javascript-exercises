@@ -1,4 +1,17 @@
-let myLibrary = [];
+let myLibrary = [
+    {
+        title: "Project Hail Marry",
+        author: "Andrew Weir",
+        pages: 496,
+        read: true,
+    },
+    {
+        title: "The Martian",
+        author: "Andrew Weir",
+        pages: 496,
+        read: true,
+    },
+];
 
 class Book {
     constructor(title, author, pages, read) {
@@ -12,9 +25,11 @@ class Book {
     }
 }
 
+const mainContainer = document.querySelector(".container");
 const toOpenForm = document.querySelector(".openForm");
 const toCloseForm = document.querySelector(".closeForm");
 const toAddBook = document.querySelector(".addBook");
+
 
 toOpenForm.addEventListener("click", openForm);
 toCloseForm.addEventListener("click", closeForm);
@@ -42,3 +57,28 @@ function addBook () {
 }
 
 console.log(myLibrary);
+
+// Create cards for each new object
+
+function createCard () {
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        // Creates card container
+        const newCard = document.createElement("div");
+        newCard.classList.add("card");
+        mainContainer.appendChild(newCard);
+
+        // Creates title
+        const newTitle = document.createElement("div");
+        newTitle.classList.add("title");
+        newTitle.innerHTML = "title";
+    }
+}
+
+function getTitle () {
+    for (let i = 0; i < myLibrary.length; i++) {
+        console.log(i);
+    }
+}
+
+createCard();
