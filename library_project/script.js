@@ -11,6 +11,12 @@ let myLibrary = [
         pages: 500,
         read: false,
     },
+    {
+        title: "Peacemaker",
+        author: "John Cena",
+        pages: 200,
+        read: false,
+    }
 ];
 
 class Book {
@@ -25,16 +31,18 @@ class Book {
     }
 }
 
+//////// DOM selectors ////////
 const mainContainer = document.querySelector(".container");
 const toOpenForm = document.querySelector(".openForm");
 const toCloseForm = document.querySelector(".closeForm");
 const toAddBook = document.querySelector(".addBook");
 
-
+//////// Event Listeners ////////
 toOpenForm.addEventListener("click", openForm);
 toCloseForm.addEventListener("click", closeForm);
 toAddBook.addEventListener("click", addBook);
 
+//////// Functions ////////
 function openForm () {
     document.getElementById("myForm").style.display = "block";
 }
@@ -53,14 +61,11 @@ function addBook () {
 
     newBook.sayBook(); // this keeps the contents in the myLibrary array
 
+    submitForm();
     closeForm();
 }
 
-console.log(myLibrary);
-
-
 function createCards () {
-
     for (let i = 0; i < myLibrary.length; i++) {
         // creates blank cards 
         const newCard = document.createElement("div");
@@ -86,7 +91,7 @@ function createCards () {
         bookPages.textContent = "Pages: " + myLibrary[i].pages;
         newCard.appendChild(bookPages);
 
-        // for read or not read
+        // for read
         const bookRead = document.createElement("div");
         bookRead.classList.add("bookRead");
         if (myLibrary[i].read === false) {
@@ -95,7 +100,31 @@ function createCards () {
             bookRead.textContent = "Read";
         }
         newCard.appendChild(bookRead);
+
+        // creates discard button
+        const discardBtn = document.createElement("button");
+        discardBtn.classList.add("bookDiscard");
+        discardBtn.textContent = "Discard Book";
+        newCard.appendChild(discardBtn);
+        discardBtn.addEventListener("click", () => {
+            // discards card
+            newCard.remove();
+        })
+    
+        // creates read toggle
+
+
     }
 }
 
+function submitForm (e) {
+    // prevents form from submitting to database
+    let warn = "preventDefault() won't let you submit this!<br>";
+    toAddBook.innerHTML += warn;
+    e.preventDefault();
+}
+
+
+
+console.log(myLibrary);
 createCards();
