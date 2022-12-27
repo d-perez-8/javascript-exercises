@@ -5,12 +5,12 @@ let myLibrary = [
         pages: 496,
         read: true,
     },
-    // {
-    //     title: "The Martian",
-    //     author: "Andrew Weir",
-    //     pages: 496,
-    //     read: true,
-    // },
+    {
+        title: "The Martian",
+        author: "Andrew Weir",
+        pages: 500,
+        read: false,
+    },
 ];
 
 class Book {
@@ -60,74 +60,41 @@ console.log(myLibrary);
 
 
 function createCards () {
-    // Creates card container
 
     for (let i = 0; i < myLibrary.length; i++) {
+        // creates blank cards 
         const newCard = document.createElement("div");
         newCard.classList.add("card");
+        newCard.setAttribute("id", i);
         mainContainer.appendChild(newCard);
-    }
 
-    getTitle();
-    getAuthor();
-    getPages();
-    getRead();
-}
-
-function getTitle () {
-    // creates titles for cards
-    let titles = myLibrary.values();
-    for (const value of titles) {
+        // generates title
         const bookTitle = document.createElement("div");
         bookTitle.classList.add("bookTitle");
+        bookTitle.textContent = myLibrary[i].title;
+        newCard.appendChild(bookTitle);
 
-        const card = document.querySelector(".card");
-        card.appendChild(bookTitle);
-        bookTitle.textContent = value.title;
-
-        console.log(value.title);
-    }
-}
-
-function getAuthor () {
-    let authors = myLibrary.values();
-    for (const value of authors) {
+        // for author
         const bookAuthor = document.createElement("div");
         bookAuthor.classList.add("bookAuthor");
+        bookAuthor.textContent = "By: " + myLibrary[i].author;
+        newCard.appendChild(bookAuthor);
 
-        const card = document.querySelector(".card");
-        card.appendChild(bookAuthor);
-        bookAuthor.textContent = "by " + value.author;
-
-        console.log(value.author)
-    }
-}
-
-function getPages () {
-    let pages = myLibrary.values();
-    for (const value of pages) {
+        // for pages
         const bookPages = document.createElement("div");
         bookPages.classList.add("bookPages");
+        bookPages.textContent = "Pages: " + myLibrary[i].pages;
+        newCard.appendChild(bookPages);
 
-        const card = document.querySelector(".card");
-        card.appendChild(bookPages);
-        bookPages.textContent = "Pages: " + value.pages;
-
-        console.log(value.pages);
-    }
-}
-
-function getRead () {
-    let read = myLibrary.values();
-    for (const value of read) {
+        // for read or not read
         const bookRead = document.createElement("div");
         bookRead.classList.add("bookRead");
-        
-        const card = document.querySelector(".card");
-        card.appendChild(bookRead);
-        bookRead.textContent = "Read: " + value.read;
-
-        console.log(value.read);
+        if (myLibrary[i].read === false) {
+            bookRead.textContent = "Not Read";
+        } else {
+            bookRead.textContent = "Read";
+        }
+        newCard.appendChild(bookRead);
     }
 }
 
