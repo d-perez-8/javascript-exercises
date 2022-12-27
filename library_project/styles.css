@@ -42,7 +42,7 @@ nav {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
 }
 
@@ -55,6 +55,35 @@ nav {
     background-color: white;
 
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.bookTitle {
+    font-size: 1.3rem;
+    position: relative;
+    top: 40px;
+}
+
+.bookAuthor {
+    font-size: 1rem;
+    color: grey;
+    position: relative;
+    top: 60px;
+}
+
+.bookPages {
+    font-size: 1rem;
+    position: relative;
+    top: 80px;
+}
+
+.bookRead {
+    font-size: 1rem;
+    position: relative;
+    top: 150px;
 }
 
 /* FORM STLYES */

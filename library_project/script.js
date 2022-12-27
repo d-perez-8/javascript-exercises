@@ -1,16 +1,16 @@
 let myLibrary = [
     {
-        title: "Project Hail Marry",
+        title: "Project Hail Mary",
         author: "Andrew Weir",
         pages: 496,
         read: true,
     },
-    {
-        title: "The Martian",
-        author: "Andrew Weir",
-        pages: 496,
-        read: true,
-    },
+    // {
+    //     title: "The Martian",
+    //     author: "Andrew Weir",
+    //     pages: 496,
+    //     read: true,
+    // },
 ];
 
 class Book {
@@ -58,27 +58,77 @@ function addBook () {
 
 console.log(myLibrary);
 
-// Create cards for each new object
 
-function createCard () {
+function createCards () {
+    // Creates card container
 
     for (let i = 0; i < myLibrary.length; i++) {
-        // Creates card container
         const newCard = document.createElement("div");
         newCard.classList.add("card");
         mainContainer.appendChild(newCard);
-
-        // Creates title
-        const newTitle = document.createElement("div");
-        newTitle.classList.add("title");
-        newTitle.innerHTML = "title";
     }
+
+    getTitle();
+    getAuthor();
+    getPages();
+    getRead();
 }
 
 function getTitle () {
-    for (let i = 0; i < myLibrary.length; i++) {
-        console.log(i);
+    // creates titles for cards
+    let titles = myLibrary.values();
+    for (const value of titles) {
+        const bookTitle = document.createElement("div");
+        bookTitle.classList.add("bookTitle");
+
+        const card = document.querySelector(".card");
+        card.appendChild(bookTitle);
+        bookTitle.textContent = value.title;
+
+        console.log(value.title);
     }
 }
 
-createCard();
+function getAuthor () {
+    let authors = myLibrary.values();
+    for (const value of authors) {
+        const bookAuthor = document.createElement("div");
+        bookAuthor.classList.add("bookAuthor");
+
+        const card = document.querySelector(".card");
+        card.appendChild(bookAuthor);
+        bookAuthor.textContent = "by " + value.author;
+
+        console.log(value.author)
+    }
+}
+
+function getPages () {
+    let pages = myLibrary.values();
+    for (const value of pages) {
+        const bookPages = document.createElement("div");
+        bookPages.classList.add("bookPages");
+
+        const card = document.querySelector(".card");
+        card.appendChild(bookPages);
+        bookPages.textContent = "Pages: " + value.pages;
+
+        console.log(value.pages);
+    }
+}
+
+function getRead () {
+    let read = myLibrary.values();
+    for (const value of read) {
+        const bookRead = document.createElement("div");
+        bookRead.classList.add("bookRead");
+        
+        const card = document.querySelector(".card");
+        card.appendChild(bookRead);
+        bookRead.textContent = "Read: " + value.read;
+
+        console.log(value.read);
+    }
+}
+
+createCards();
