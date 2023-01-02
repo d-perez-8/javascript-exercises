@@ -92,11 +92,20 @@ function createCards () {
         newCard.appendChild(bookPages);
 
         // for read
-        const bookRead = document.createElement("div");
+        const bookRead = document.createElement("button");
         bookRead.classList.add("bookRead");
+        // creates read toggle
+        bookRead.addEventListener("click", () => {
+            if (bookRead.innerHTML == "Not Read") {
+                bookRead.textContent = "Read";
+            } else {
+                bookRead.textContent = "Not Read";
+            }
+            console.log(myLibrary);
+        })
         if (myLibrary[i].read === false) {
             bookRead.textContent = "Not Read";
-        } else {
+        } else if (myLibrary[i].read === true) {
             bookRead.textContent = "Read";
         }
         newCard.appendChild(bookRead);
@@ -104,16 +113,12 @@ function createCards () {
         // creates discard button
         const discardBtn = document.createElement("button");
         discardBtn.classList.add("bookDiscard");
-        discardBtn.textContent = "Discard Book";
+        discardBtn.textContent = "Discard";
         newCard.appendChild(discardBtn);
         discardBtn.addEventListener("click", () => {
             // discards card
             newCard.remove();
         })
-    
-        // creates read toggle
-
-
     }
 }
 
@@ -124,7 +129,4 @@ function submitForm (e) {
     e.preventDefault();
 }
 
-
-
-console.log(myLibrary);
 createCards();
