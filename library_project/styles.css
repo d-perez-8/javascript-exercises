@@ -182,3 +182,22 @@ fieldset input {
 .form-container .btn:hover, .openForm .btn:hover {
     opacity: 1;
 }
+
+/* FOOTER STYLES */
+
+footer {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.footer {
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+    font-size: 1.2rem;
+}

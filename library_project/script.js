@@ -101,7 +101,6 @@ function createCards () {
             } else {
                 bookRead.textContent = "Not Read";
             }
-            console.log(myLibrary);
         })
         if (myLibrary[i].read === false) {
             bookRead.textContent = "Not Read";
